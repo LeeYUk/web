@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <script src="out2.js"></script>
+
+</head>
+<script>
+    //1
+    for (let i = 0; i < 3; i++) {
+        alert("@@@");
+    }
+
+    //2
+    let site = prompt("주로가는 사이트?");
+    if (site == "naver","네이버") {
+        window.open('http://www.naver.com');
+    } else if (site == "daum") {
+        location.href="http://www.daum.com";
+    } else if (site == "google") {
+        location.href="http://www.google.com";
+    } else {
+        alert("naver, daum, google 중에서 적어주세요!");
+    }
+
+
+    //3
+    travel()
+    rest()
+
+    //4
+    let question = confirm("당신은 자바 프로그래머인가요?");
+    if (question == true) {
+        alert("훌룽함");
+    }
+    else if (question == false) {
+        alert("삐삑!");
+    }
+
+    //5
+    let coffee = prompt("커피값을 입력");
+    let count = prompt("몇잔?");
+    let sum = 0;
+
+    parseInt(coffee, count);
+    sum = (coffee * count);
+    if (sum > 15000) {
+        alert("할인");
+    } else {
+        alert("정가");
+    }
+
+    //6
+    let food = prompt("먹고싶은거");
+    let price = prompt("가격을 입력");
+    parseInt(price);
+
+    if (food == "coffee","커피") {
+        if (price < 5000) {
+            alert("내가 삼");
+        }
+    }
+    else {
+        alert("니가 사");
+    }
+
+    //7
+    let time = prompt("지금은 오전인가요 오후인가요?");
+
+    if (time == "오전") {
+        for (let i = 0; i < 3; i++) {
+            console.log("굿모닝!");
+        }
+    }
+    else if (time == "오후") {
+        for (let i = 0; i < 5; i++) {
+            console.log("굿에프터눈!");
+        }
+    }
+    else {
+
+        for (let i = 0; i < 10; i++) {
+            console.log("굿나잇!");
+        }
+    }
+</script>
+
+<body>
+
+</body>
+
+</html>
