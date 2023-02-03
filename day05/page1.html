@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function pay() {
+            let shop = document.getElementById("text1").value;
+            let pay = document.getElementById("text2").value;
+            let choice = document.getElementById("text3").value;
+            let sum = parseInt(pay);
+
+            if (choice == 1) {
+                result.innerHTML = shop + "에서" + sum + "원을"+" 결제수단 "+ choice + " 으로 결제했습니다.";
+            }
+            else if (choice == 2) {
+                result.innerHTML = shop + "에서" + (sum + 1000) + "원을 "+"결제수단" + choice + " 으로 결제했습니다.";
+            }
+            else if (choice == 3) {
+                result.innerHTML = shop + "에서" + (sum + 500) + "원을 "+"결제수단" + choice + " 으로 결제했습니다.";
+            }
+            else {
+                result.innerHTML = "<font color=red> 올바른 입력수단을 입력하세요!</font>";
+        }
+    }
+
+    </script>
+</head>
+
+<body>
+    <hr color="red">
+    <center>
+    <div>
+        구매상점 <input type="text" value="멀티샵" id="text1"><br>
+        결제금액 <input type="text" value="10000" id="text2"><br>
+        입력수단 (1)계좌이체 2)신용카드 3)휴대폰결제)<br>
+        <input type="text" value="1" id="text3"><br>
+        <button onclick="pay()">결제</button>
+    </div>
+    <hr color="blue">
+
+    <div id="result"> </div>
+</body>
+
+</html>

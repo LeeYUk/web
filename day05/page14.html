@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AjaxTest</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        $(function () {
+            $("#b3").click(function () {
+                // alert("You clicked")
+                //b3을 클릭할때 함수실행
+                $.ajax({
+                    url: "info3.html",
+                    success: function (x) {
+                        $("#d3").html(x);
+                    }
+                })
+            })
+
+            $("#b2").click(function () {
+                // alert("You clicked")
+                //b2을 클릭할때 함수실행
+                $.ajax({
+                    url: "info2.html",
+                    success: function (x) {
+                        $("#d2").html(x);
+                    }
+                })
+            })
+            $("#b1").click(function () {
+                // alert("You clicked")
+                //b1을 클릭할때 함수실행
+                $.ajax({
+                    url: "info1.html",
+                    success: function (x) {
+                        $("#d1").html(x);
+                    }
+                })
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <button id="b1">영화정보 받아오기</button>
+    <button id="b2">코로스정보 받아오기</button>
+    <button id="b3">교통정보 받아오기</button>
+    <hr>
+    <div id="d1" style="width: 200px; height: 100px; background: lime;"></div>
+    <div id="d2" style="width: 200px; height: 100px; background: lightyellow;"></div>
+    <div id="d3" style="width: 200px; height: 100px; background: pink;"></div>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page1</title>
+
+</head>
+
+<body>
+    <center>
+        <h1>Page1</h1><br>
+        <h2>오픈소스를 이용한 웹페이지</h2>
+
+        <hr color="gray">
+        <div id="map" style="width:700px;height:500px;"></div>
+        <div>이곳은 창원광장입니다<br> 밑은 창원광장의 로드뷰입니다</div>
+        <div id="roadview" style="width:700px;height:500px;"></div>
+    </center>
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1dbba6b49b07b20d9d61a143073f3d6c"></script>
+    <script>
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = {
+                center: new kakao.maps.LatLng(35.2263473, 128.6822048), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };
+
+        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+        var marker = new kakao.maps.Marker();
+
+        // 타일 로드가 완료되면 지도 중심에 마커를 표시합니다
+        kakao.maps.event.addListener(map, 'tilesloaded', displayMarker);
+
+        function displayMarker() {
+
+            // 마커의 위치를 지도중심으로 설정합니다 
+            marker.setPosition(map.getCenter());
+            marker.setMap(map);
+
+            // 아래 코드는 최초 한번만 타일로드 이벤트가 발생했을 때 어떤 처리를 하고 
+            // 지도에 등록된 타일로드 이벤트를 제거하는 코드입니다 
+            // kakao.maps.event.removeListener(map, 'tilesloaded', displayMarker);
+        }
+    </script>
+
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=발급받은 APP KEY를 사용하세요"></script>
+    <script>
+        var roadviewContainer = document.getElementById('roadview'); //로드뷰를 표시할 div
+        var roadview = new kakao.maps.Roadview(roadviewContainer); //로드뷰 객체
+        var roadviewClient = new kakao.maps.RoadviewClient(); //좌표로부터 로드뷰 파노ID를 가져올 로드뷰 helper객체
+
+        var position = new kakao.maps.LatLng(35.226386,128.680996);
+
+        // 특정 위치의 좌표와 가까운 로드뷰의 panoId를 추출하여 로드뷰를 띄운다.
+        roadviewClient.getNearestPanoId(position, 50, function (panoId) {
+            roadview.setPanoId(panoId, position); //panoId와 중심좌표를 통해 로드뷰 실행
+        });
+    </script>
+</body>
+
+</html>
